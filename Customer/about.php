@@ -43,8 +43,8 @@ if(!isset($_SESSION['role'])){
 <body>
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow-sm py-3 py-lg-0 px-3 px-lg-0 mb-5">
-        <a href="index.html" class="navbar-brand ms-lg-5">
-            <h1 class="m-0 text-uppercase text-dark"><i class="bi bi-shop fs-1 text-primary me-3"></i>Pet Shop</h1>
+        <a href="index.php" class="navbar-brand ms-lg-5">
+            <h1 class="m-0 text-uppercase text-dark"><i class="bi bi-shop fs-1 text-primary me-3"></i>ANIPAT</h1>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
@@ -124,8 +124,7 @@ if(!isset($_SESSION['role'])){
                         <h1 class="display-5 text-uppercase text-white mb-0">Save 50% on all items your first order</h1>
                     </div>
                     <p class="text-white mb-4">Hemat 50% untuk semua item pesanan pertama Anda</p>
-                    <a href="" class="btn btn-light py-md-3 px-md-5 me-3">Beli Sekarang</a>
-                    <a href="" class="btn btn-outline-light py-md-3 px-md-5">Baca Selengkapnya</a>
+                    <a href="product.php" class="btn btn-outline-light py-md-3 px-md-5">Beli Sekarang</a>
                 </div>
             </div>
         </div>
@@ -146,9 +145,7 @@ if(!isset($_SESSION['role'])){
                         <img class="img-fluid w-100" src="img/team-1.jpg" alt="">
                         <div class="team-overlay">
                             <div class="d-flex align-items-center justify-content-start">
-                                <a class="btn btn-light btn-square mx-1" href="#"><i class="bi bi-twitter"></i></a>
-                                <a class="btn btn-light btn-square mx-1" href="#"><i class="bi bi-facebook"></i></a>
-                                <a class="btn btn-light btn-square mx-1" href="#"><i class="bi bi-linkedin"></i></a>
+                            <a class="btn btn-light btn-square mx-1" href="#"><i class="bi bi-instagram"></i></a>
                             </div>
                         </div>
                     </div>
@@ -162,9 +159,7 @@ if(!isset($_SESSION['role'])){
                         <img class="img-fluid w-100" src="img/team-2.jpg" alt="">
                         <div class="team-overlay">
                             <div class="d-flex align-items-center justify-content-start">
-                                <a class="btn btn-light btn-square mx-1" href="#"><i class="bi bi-twitter"></i></a>
-                                <a class="btn btn-light btn-square mx-1" href="#"><i class="bi bi-facebook"></i></a>
-                                <a class="btn btn-light btn-square mx-1" href="#"><i class="bi bi-linkedin"></i></a>
+                                <a class="btn btn-light btn-square mx-1" href="#"><i class="bi bi-instagram"></i></a>
                             </div>
                         </div>
                     </div>
@@ -178,9 +173,7 @@ if(!isset($_SESSION['role'])){
                         <img class="img-fluid w-100" src="img/team-3.jpg" alt="">
                         <div class="team-overlay">
                             <div class="d-flex align-items-center justify-content-start">
-                                <a class="btn btn-light btn-square mx-1" href="#"><i class="bi bi-twitter"></i></a>
-                                <a class="btn btn-light btn-square mx-1" href="#"><i class="bi bi-facebook"></i></a>
-                                <a class="btn btn-light btn-square mx-1" href="#"><i class="bi bi-linkedin"></i></a>
+                                <a class="btn btn-light btn-square mx-1" href="#"><i class="bi bi-instagram"></i></a>
                             </div>
                         </div>
                     </div>
@@ -194,9 +187,7 @@ if(!isset($_SESSION['role'])){
                         <img class="img-fluid w-100" src="img/team-4.jpg" alt="">
                         <div class="team-overlay">
                             <div class="d-flex align-items-center justify-content-start">
-                                <a class="btn btn-light btn-square mx-1" href="#"><i class="bi bi-twitter"></i></a>
-                                <a class="btn btn-light btn-square mx-1" href="#"><i class="bi bi-facebook"></i></a>
-                                <a class="btn btn-light btn-square mx-1" href="#"><i class="bi bi-linkedin"></i></a>
+                                <a class="btn btn-light btn-square mx-1" href="#"><i class="bi bi-instagram"></i></a>
                             </div>
                         </div>
                     </div>
@@ -210,9 +201,7 @@ if(!isset($_SESSION['role'])){
                         <img class="img-fluid w-100" src="img/team-5.jpg" alt="">
                         <div class="team-overlay">
                             <div class="d-flex align-items-center justify-content-start">
-                                <a class="btn btn-light btn-square mx-1" href="#"><i class="bi bi-twitter"></i></a>
-                                <a class="btn btn-light btn-square mx-1" href="#"><i class="bi bi-facebook"></i></a>
-                                <a class="btn btn-light btn-square mx-1" href="#"><i class="bi bi-linkedin"></i></a>
+                                <a class="btn btn-light btn-square mx-1" href="#"><i class="bi bi-instagram"></i></a>
                             </div>
                         </div>
                     </div>

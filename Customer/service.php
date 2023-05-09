@@ -14,7 +14,7 @@ if(!isset($_SESSION['role'])){
 
 <head>
     <meta charset="utf-8">
-    <title>PET SHOP - Pet Shop Website Template</title>
+    <title>Layanan - Petshop</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
@@ -44,8 +44,8 @@ if(!isset($_SESSION['role'])){
 <body>
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow-sm py-3 py-lg-0 px-3 px-lg-0 mb-5">
-        <a href="index.html" class="navbar-brand ms-lg-5">
-            <h1 class="m-0 text-uppercase text-dark"><i class="bi bi-shop fs-1 text-primary me-3"></i>Pet Shop</h1>
+        <a href="index.php" class="navbar-brand ms-lg-5">
+            <h1 class="m-0 text-uppercase text-dark"><i class="bi bi-shop fs-1 text-primary me-3"></i>ANIPAT</h1>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
@@ -92,7 +92,7 @@ if(!isset($_SESSION['role'])){
                         <div>
                             <h5 class="text-uppercase mb-3">Pet Boarding</h5>
                             <p>Menjaga hewan peliharaan Anda, merawat sesuai arahan tenaga medis dan trainer <br> sesuai dengan prosedur yang berlaku <br> untuk memastikan hewan peliharaan <br> Anda berada dalam kondisi yang optimal.</p>
-                            <a class="text-primary text-uppercase" href="">Reservasi Sekarang<i class="bi bi-chevron-right"></i></a>
+                            <a class="text-primary text-uppercase" href="form.php">Reservasi Sekarang<i class="bi bi-chevron-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -102,7 +102,7 @@ if(!isset($_SESSION['role'])){
                         <div>
                             <h5 class="text-uppercase mb-3">Pet Feeding</h5>
                             <p>Memberikan makanan hewan peliharaan Anda mulai dari dry food hingga wet food dengan kualitas tinggi.</p>
-                            <a class="text-primary text-uppercase" href="">Reservasi Sekarang<i class="bi bi-chevron-right"></i></a>
+                            <a class="text-primary text-uppercase" href="form.php">Reservasi Sekarang<i class="bi bi-chevron-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -112,7 +112,7 @@ if(!isset($_SESSION['role'])){
                         <div>
                             <h5 class="text-uppercase mb-3">Pet Grooming</h5>
                             <p>Merawat, memelihara penampilan mulai dari perawatan bulu, pemotongan kuku, pembersihan telinga, pengaturan gaya rambut hewan peliharaan.</p>
-                            <a class="text-primary text-uppercase" href="">Reservasi Sekarang<i class="bi bi-chevron-right"></i></a>
+                            <a class="text-primary text-uppercase" href="form.php">Reservasi Sekarang<i class="bi bi-chevron-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -122,7 +122,7 @@ if(!isset($_SESSION['role'])){
                         <div>
                             <h5 class="text-uppercase mb-3">Pet Training</h5>
                             <p>Pelatihan hewan peliharaan berupa mengajari trik dan bagaimana tidak buang air kecil di rumah.</p>
-                            <a class="text-primary text-uppercase" href="">Reservasi Sekarang<i class="bi bi-chevron-right"></i></a>
+                            <a class="text-primary text-uppercase" href="form.php">Reservasi Sekarang<i class="bi bi-chevron-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -132,7 +132,7 @@ if(!isset($_SESSION['role'])){
                         <div>
                             <h5 class="text-uppercase mb-3">Pet Exercise</h5>
                             <p>Membawa hewan peliharaann Anda berjalan-jalan di sekitar blok.</p>
-                            <a class="text-primary text-uppercase" href="">Reservasi Sekarang<i class="bi bi-chevron-right"></i></a>
+                            <a class="text-primary text-uppercase" href="form.php">Reservasi Sekarang<i class="bi bi-chevron-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -142,7 +142,7 @@ if(!isset($_SESSION['role'])){
                         <div>
                             <h5 class="text-uppercase mb-3">Pet Treatment</h5>
                             <p>Berbagai macam terapi untuk mengobati kanker, salah satunya adalah pet therapy: terapi yang menggunakan hewan peliharaan.</p>
-                            <a class="text-primary text-uppercase" href="">Reservasi Sekarang<i class="bi bi-chevron-right"></i></a>
+                            <a class="text-primary text-uppercase" href="form.php">Reservasi Sekarang<i class="bi bi-chevron-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -188,111 +188,6 @@ if(!isset($_SESSION['role'])){
         </div>
     </div>
     <!-- Testimonial End -->
-
-
-    <!-- Pricing Plan Start -->
-    <div class="container-fluid py-5">
-        <div class="container">
-            <div class="border-start border-5 border-primary ps-5 mb-5" style="max-width: 600px;">
-                <h6 class="text-primary text-uppercase">Membership</h6>
-                <h1 class="display-5 text-uppercase mb-0">Gabung Membership</h1>
-            </div>
-            <div class="row g-5">
-                <div class="col-lg-4">
-                    <div class="bg-light text-center pt-5 mt-lg-5">
-                        <h2 class="text-uppercase">Basic</h2>
-                        <h6 class="text-body mb-5">The Best Choice</h6>
-                        <div class="text-center bg-primary p-4 mb-2">
-                            <h1 class="display-4 text-white mb-0">
-                                <small class="align-top"
-                                    style="font-size: 22px; line-height: 45px;">Rp</small>50.000<small
-                                    class="align-bottom" style="font-size: 16px; line-height: 40px;">/
-                                    Mo</small>
-                            </h1>
-                        </div>
-                        <div class="text-center p-4">
-                            <div class="d-flex align-items-center justify-content-between mb-1">
-                                <span>Promo setiap 1 minggu sekali</span>
-                                <i class="bi bi-check2 fs-4 text-primary"></i>
-                            </div>
-                            <div class="d-flex align-items-center justify-content-between mb-1">
-                                <span>Diskon 5% setiap menggunakan layanan kami</span>
-                                <i class="bi bi-check2 fs-4 text-primary"></i>
-                            </div>
-                            <div class="d-flex align-items-center justify-content-between mb-1">
-                                <span>Diskon 5% setiap pembelian produk apapun</span>
-                                <i class="bi bi-check2 fs-4 text-primary"></i>
-                            </div>
-                            <a href="" class="btn btn-primary text-uppercase py-2 px-4 my-3">Langganan Sekarang</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="bg-light text-center pt-5">
-                        <h2 class="text-uppercase">Standard</h2>
-                        <h6 class="text-body mb-5">The Best Choice</h6>
-                        <div class="text-center bg-dark p-4 mb-2">
-                            <h1 class="display-4 text-white mb-0">
-                                <small class="align-top"
-                                    style="font-size: 22px; line-height: 45px;">Rp</small>99.000<small
-                                    class="align-bottom" style="font-size: 16px; line-height: 40px;">/
-                                    Mo</small>
-                            </h1>
-                        </div>
-                        <div class="text-center p-4">
-                            <div class="d-flex align-items-center justify-content-between mb-1">
-                                <span>Promo setiap minggu</span>
-                                <i class="bi bi-check2 fs-4 text-primary"></i>
-                            </div>
-                            <div class="d-flex align-items-center justify-content-between mb-1">
-                                <span>Diskon 10% setiap melakukan transaksi apapun</span>
-                                <i class="bi bi-check2 fs-4 text-primary"></i>
-                            </div>
-                            <div class="d-flex align-items-center justify-content-between mb-1">
-                                <span>Gratis ongkos kirim setiap 2x dalam seminggu</span>
-                                <i class="bi bi-check2 fs-4 text-primary"></i>
-                            </div>
-                            <a href="" class="btn btn-primary text-uppercase py-2 px-4 my-3">Langganan Sekarang</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="bg-light text-center pt-5 mt-lg-5">
-                        <h2 class="text-uppercase">Extended</h2>
-                        <h6 class="text-body mb-5">The Best Choice</h6>
-                        <div class="text-center bg-primary p-4 mb-2">
-                            <h1 class="display-4 text-white mb-0">
-                                <small class="align-top"
-                                    style="font-size: 22px; line-height: 45px;">Rp</small>149.000<small
-                                    class="align-bottom" style="font-size: 16px; line-height: 40px;">/
-                                    Mo</small>
-                            </h1>
-                        </div>
-                        <div class="text-center p-4">
-                            <div class="d-flex align-items-center justify-content-between mb-1">
-                                <span>Promo setiap minggu</span>
-                                <i class="bi bi-check2 fs-4 text-primary"></i>
-                            </div>
-                            <div class="d-flex align-items-center justify-content-between mb-1">
-                                <span>Diskon 20% setiap melakukan transaksi apapun</span>
-                                <i class="bi bi-check2 fs-4 text-primary"></i>
-                            </div>
-                            <div class="d-flex align-items-center justify-content-between mb-1">
-                                <span>Gratis ongkos kirim setiap pembelian produk apapun</span>
-                                <i class="bi bi-check2 fs-4 text-primary"></i>
-                            </div>
-                            <div class="d-flex align-items-center justify-content-between mb-1">
-                                <span>Layanan khusus setiap minggu</span>
-                                <i class="bi bi-check2 fs-4 text-primary"></i>
-                            </div>
-                            <a href="" class="btn btn-primary text-uppercase py-2 px-4 my-3">Langganan Sekarang</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Pricing Plan End -->
     
 
     <!-- Footer Start -->

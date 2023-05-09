@@ -20,7 +20,9 @@ if(isset($_POST['add_to_cart'])){
     $check_cart_numbers = mysqli_query($conn, "SELECT * FROM `keranjang` WHERE nama = '$product_name' AND user_id = '$user_id'") or die('query failed');
  
     if(mysqli_num_rows($check_cart_numbers) > 0){
-       $message[] = 'Produk berhasil ditambahkan ke keranjang!';
+        echo "<script>
+            alert('Produk telah ditambahkan ke keranjang!');
+            </script>";
     }else{
        mysqli_query($conn, "INSERT INTO `keranjang`(user_id, nama, harga, foto, quantity) VALUES('$user_id', '$product_name', '$product_price', '$product_image', '$product_quantity')") or die('query failed');
        echo "<script>
@@ -36,7 +38,7 @@ if(isset($_POST['add_to_cart'])){
 
 <head>
     <meta charset="utf-8">
-    <title>PET SHOP - Pet Shop Website Template</title>
+    <title>Produk - ANIPAT</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
@@ -66,8 +68,8 @@ if(isset($_POST['add_to_cart'])){
 <body>
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow-sm py-3 py-lg-0 px-3 px-lg-0 mb-5">
-        <a href="index.html" class="navbar-brand ms-lg-5">
-            <h1 class="m-0 text-uppercase text-dark"><i class="bi bi-shop fs-1 text-primary me-3"></i>Pet Shop</h1>
+        <a href="index.php" class="navbar-brand ms-lg-5">
+            <h1 class="m-0 text-uppercase text-dark"><i class="bi bi-shop fs-1 text-primary me-3"></i>ANIPAT</h1>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
@@ -93,32 +95,46 @@ if(isset($_POST['add_to_cart'])){
 
 
     <!-- Products Start -->
-    <div class="products">
-        <div class="border-start border-5 border-primary ps-5 mb-5" style="max-width: 600px;">
-            <h3 class="text-primary text-uppercase">Makanan Kucing & Anjing</h3>
-        </div>
-        <div class="box-container">
-            <?php
-                $select_products = mysqli_query($conn, "SELECT * FROM `produk`") or die('query failed');
-                if(mysqli_num_rows($select_products) > 0){
-                    while($fetch_products = mysqli_fetch_assoc($select_products)){
-                ?>
-                <form action="" method="post" class="box">
-                    <img class="image" src="<?php echo $fetch_products['foto']; ?>" alt="">
-                    <div class="name"><?php echo $fetch_products['nama']; ?></div>
-                    <div class="price">Rp<?php echo $fetch_products['harga']; ?></div>
-                    <input type="number" min="1" name="product_quantity" value="1" class="qty">
-                    <input type="hidden" name="product_name" value="<?php echo $fetch_products['nama']; ?>">
-                    <input type="hidden" name="product_price" value="<?php echo $fetch_products['harga']; ?>">
-                    <input type="hidden" name="product_image" value="<?php echo $fetch_products['foto']; ?>">
-                    <input type="submit" value="Tambah" name="add_to_cart" class="btn btn-primary py-2 px-3">
-                </form>
-                <?php
-                    }
-                }else{
-                    echo '<p class="empty">tidak ada produk ditambahkan!</p>';
-                }
-            ?>
+    <div class="container-fluid py-2">
+        <div class="container">
+            <div class="products">
+                <div class="border-start border-5 border-primary ps-5 mb-4" style="max-width: 600px;">
+                    <h3 class="text-primary text-uppercase">Produk ANIPAT</h3>
+                    <h1 class="display-5 text-uppercase mb-0">Produk Kebutuhan Hewan Anda</h1>
+                </div>
+                <div class="bottom-bar">
+                    <div class="search-container">
+                        <form action="/action_page.php">
+                        <input type="text" placeholder="Cari produk.." name="search">
+                        <button type="submit"><i class="fa fa-search"></i></button>
+                        </form>
+                    </div>
+                </div>
+                <div class="box-container">
+                    <?php
+                        $select_products = mysqli_query($conn, "SELECT * FROM `produk`") or die('query failed');
+                        if(mysqli_num_rows($select_products) > 0){
+                            while($fetch_products = mysqli_fetch_assoc($select_products)){
+                        ?>
+                        <form action="" method="post" class="box">
+                            <img class="image" src="<?php echo $fetch_products['foto']; ?>" alt="">
+                            <div class="name"><?php echo $fetch_products['nama']; ?></div>
+                            <div class="price">Rp<?php echo $fetch_products['harga']; ?></div>
+                            <div class="stock"><?php echo $fetch_products['ketersediaan_stok']; ?></div>
+                            <input type="number" min="1" name="product_quantity" value="1" class="form-control bg-light border-0 px-3 py-2 align-items-center mt-3" style="width: 100%;">
+                            <input type="hidden" name="product_name" value="<?php echo $fetch_products['nama']; ?>">
+                            <input type="hidden" name="product_price" value="<?php echo $fetch_products['harga']; ?>">
+                            <input type="hidden" name="product_image" value="<?php echo $fetch_products['foto']; ?>">
+                            <input type="submit" value="Tambah" name="add_to_cart" class="btn btn-primary py-2 px-3 align-items-center mt-3" style="width: 100%; height: 40px;">
+                        </form>
+                        <?php
+                            }
+                        }else{
+                            echo '<p class="empty">Tidak ada produk yang ditambahkan!</p>';
+                        }
+                    ?>
+                </div>
+            </div>
         </div>
     </div>
     
