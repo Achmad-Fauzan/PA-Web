@@ -1,7 +1,7 @@
 <!-- PHP Session -->
 <?php
 session_start();
-require "../PA_WEB/Database/connect.php";
+require "../projek_akhir/Database/connect.php";
 $alert = "";
 
 if(isset($_POST['login'])){
@@ -17,21 +17,30 @@ if(isset($_POST['login'])){
         $ambildatarole = mysqli_fetch_assoc($result);
         $username = $ambildatarole['username'];
 
-        if($username=='customer' && $password=='customer'){
+        if($role=='customer'){
             $_SESSION['log'] = 'Logged';
             $_SESSION['role'] = 'customer';
             $_SESSION['user_id'] = 'user_id';
-            header('location: ../PA_WEB/Customer/index.php');
+            echo "<script>
+            alert('Berhasil login!');
+            </script>";
+            header('location: ../projek_akhir/Customer/index.php');
         }else if($username=='admin' && $password=='admin'){
             $_SESSION['log'] = 'Logged';
             $_SESSION['role'] = 'admin';
             $_SESSION['user_id'] = 'user_id';
-            header('location: ../PA_WEB/Admin/index.php');
+            echo "<script>
+            alert('Berhasil login!');
+            </script>";
+            header('location: ../projek_akhir/Admin/index.php');
         }else if($username=='staff' && $password=='staff'){
             $_SESSION['log'] ='Logged';
             $_SESSION['role'] = 'staff';
             $_SESSION['user_id'] = 'user_id';
-            header('location: ../PA_WEB/Staff/index.php');
+            echo "<script>
+            alert('Berhasil login!');
+            </script>";
+            header('location: ../projek_akhir/Staff/index.php');
         }
     }else{
         $alert = "Username/Password/Role tidak sesuai!";
@@ -52,14 +61,14 @@ if(isset($_POST['login'])){
         <link href="img/favicon.ico" rel="icon">
 
         <!-- Stylesheet -->
-        <link href="../PA_WEB/Login/css/style.css" rel="stylesheet">
+        <link href="../projek_akhir/Login/css/style.css" rel="stylesheet">
     </head>
     <body>
         <div class="wrapper login-3">
             <div class="container">
                 <div class="col-left">
                     <div class="login-text">
-                        <!-- <h2><img src="../PA_WEB/Login/img/logo.png" alt="Logo"></h2> -->
+                        <!-- <h2><img src="../projek_akhir/Login/img/logo.png" alt="Logo"></h2> -->
                     </div>
                 </div>
                 <div class="col-right">
@@ -90,7 +99,7 @@ if(isset($_POST['login'])){
                             </p>
                             <p>
                                 Belum punya akun?
-                                <a href="">Buat akun.</a>
+                                <a href="../projek_akhir/Login/register.php">Buat akun.</a>
                             </p>
                         </form>
                     </div>

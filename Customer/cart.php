@@ -15,7 +15,9 @@ if(isset($_POST['update_cart'])){
     $update_quantity = $_POST['cart_quantity'];
     $update_id = $_POST['cart_id'];
     mysqli_query($conn, "UPDATE `keranjang` SET quantity = '$update_quantity' WHERE id = '$update_id'") or die('query failed');
-    $message[] = 'cart quantity updated successfully!';
+    echo "<script>
+    alert('Jumlah produk berhasil diubah!');
+    </script>";
 }
  
 if(isset($_GET['remove'])){
@@ -36,7 +38,7 @@ if(isset($_GET['remove'])){
 
 <head>
     <meta charset="utf-8">
-    <title>ANIPAT</title>
+    <title>Keranjang - ANIPAT</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
     <!-- Favicon -->
@@ -92,7 +94,9 @@ if(isset($_GET['remove'])){
     <!-- Cart Start -->
     <div class="container">
         <div class="shopping-cart">
-            <h1 class="heading">Keranjang Saya</h1>
+            <div class="border-start border-5 border-primary ps-5 mb-5 mt-3" style="max-width: 600px;">
+                <h3 class="text-primary text-uppercase">Keranjang Saya</h3>
+            </div>
             <table>
                 <thead>
                     <th></th>
@@ -123,26 +127,32 @@ if(isset($_GET['remove'])){
                         <td>
                             Rp<?php echo $sub_total = ($fetch_cart['harga'] * $fetch_cart['quantity']);?>
                         </td>
-                        <td><a href="cart.php?remove=<?php echo $fetch_cart['id']?>"
-                        class="btn btn-primary py-2 px-3" onclick="return confirm('Hapus item?');">Hapus</a></td>
+                        <td>
+                            <a href="cart.php?remove=<?php echo $fetch_cart['id']?>" class="btn btn-primary py-2 px-3" onclick="return confirm('Hapus item?');">Hapus</a>
+                        </td>
                     </tr>
-                    <?php
-                    $total += $sub_total;
-                        }
-                    }else{
-                        echo '<tr><td style="padding:20px; text-transform:capitalize;" colspan="6">Tidak ada item yang ditambahkan</td></tr>';
-                    }
-                    ?>
+                    <tr>
+                        <td colspan="5"></td>
+                        <td>
+                        <?php
+                            $total += $sub_total;
+                                }
+                            }else{
+                                echo '<tr><td style="padding:20px; text-transform:capitalize;" colspan="6">Tidak ada item yang ditambahkan</td></tr>';
+                            }
+                        ?>
+                            <a href="cart.php?delete_all" onclick="return confirm('Hapus semua item?');" class="btn btn-primary py-2 px-3 <?php echo ($total > 1)?'':'disabled'; ?>">Hapus Semua</a>
+                        </td>
+                    </tr>
                     <tr class="table-bottom">
-                        <td colspan="4"> <b>Total Pembayaran :</b></td>
-                        <td>Rp<?php echo $total; ?></td>
-                        <td><a href="cart.php?delete_all" onclick="return confirm('Hapus semua item?');" class="btn btn-primary py-2 px-3 <?php echo ($total > 1)?'':'disabled'; ?>">Hapus Semua</a></td>
+                        <td colspan="4"><b>Total Pembayaran :</b></td>
+                        <td><b>Rp<?php echo $total; ?></b></td>
+                        <td>
+                            <a href="checkout.php" class="btn btn-primary py-2 px-3 align-items-center <?php echo ($total > 1)?'':'disabled'; ?>">Proses Pembayaran</a>
+                        </td>
                     </tr>
                 </tbody>
             </table>
-            <div class="cart-btn">  
-                <a href="#" class="btn btn-primary py-2 px-3 <?php echo ($total > 1)?'':'disabled'; ?>">Proses Pembayaran</a>
-            </div>
         </div>
     </div>
     <!-- Cart End -->
@@ -156,11 +166,11 @@ if(isset($_GET['remove'])){
             <div class="owl-carousel product-carousel">
                 <div class="pb-5">
                     <div class="product-item position-relative bg-light d-flex flex-column text-center">
-                        <img class="img-fluid mb-4" src="img/aks-1.png" alt="">
-                        <h6 class="text-uppercase">Kalung Bel</h6>
+                        <img class="img-fluid mb-4" src="img/aksesoris-1.png" alt="">
+                        <h6 class="text-uppercase">Kalung Kucing Anjing</h6>
                         <h5 class="text-primary mb-0">Rp35.000,00</h5>
                         <div class="btn-action d-flex justify-content-center">
-                            <a class="btn btn-primary py-2 px-3" href=""><i class="bi bi-cart"></i></a>
+                            <a class="btn btn-primary py-2 px-3" href="product.php"><i class="bi bi-eye"></i></a>
                         </div>
                     </div>
                 </div>
@@ -170,7 +180,7 @@ if(isset($_GET['remove'])){
                         <h6 class="text-uppercase">Royal Canin Golden Retriever for Cat Adult 1.5kg</h6>
                         <h5 class="text-primary mb-0">Rp245.000,00</h5>
                         <div class="btn-action d-flex justify-content-center">
-                            <a class="btn btn-primary py-2 px-3" href=""><i class="bi bi-cart"></i></a>
+                            <a class="btn btn-primary py-2 px-3" href="product.php"><i class="bi bi-eye"></i></a>
                         </div>
                     </div>
                 </div>
@@ -180,7 +190,7 @@ if(isset($_GET['remove'])){
                         <h6 class="text-uppercase">Royal Canin Medium for Cat Adult 1.5kg</h6>
                         <h5 class="text-primary mb-0">Rp205.000,00</h5>
                         <div class="btn-action d-flex justify-content-center">
-                            <a class="btn btn-primary py-2 px-3" href=""><i class="bi bi-cart"></i></a>
+                            <a class="btn btn-primary py-2 px-3" href="product.php"><i class="bi bi-eye"></i></a>
                         </div>
                     </div>
                 </div>
@@ -190,7 +200,7 @@ if(isset($_GET['remove'])){
                         <h6 class="text-uppercase">Whiskas for Cat Adult 1+ 1.2kg</h6>
                         <h5 class="text-primary mb-0">Rp120.000,00</h5>
                         <div class="btn-action d-flex justify-content-center">
-                            <a class="btn btn-primary py-2 px-3" href=""><i class="bi bi-cart"></i></a>
+                            <a class="btn btn-primary py-2 px-3" href="product.php"><i class="bi bi-eye"></i></a>
                         </div>
                     </div>
                 </div>
@@ -200,7 +210,7 @@ if(isset($_GET['remove'])){
                         <h6 class="text-uppercase">Whiskas Tuna for Cat Adult 80gr</h6>
                         <h5 class="text-primary mb-0">Rp65.000,00</h5>
                         <div class="btn-action d-flex justify-content-center">
-                            <a class="btn btn-primary py-2 px-3" href=""><i class="bi bi-cart"></i></a>
+                            <a class="btn btn-primary py-2 px-3" href="product.php"><i class="bi bi-eye"></i></a>
                         </div>
                     </div>
                 </div>

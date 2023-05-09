@@ -10,17 +10,14 @@ if(!isset($_SESSION['role'])){
 }
 
 if(isset($_POST['kirim'])){
+    $nama = $_POST['nama'];
     $username = $_POST['username'];
     $message = $_POST['msg'];
     
-    $query = mysqli_query($conn,"SELECT * FROM 'user' WHERE username = '$username'") or die('query failed');
+    $query = mysqli_query($conn,"SELECT * FROM 'user' WHERE user_id = '$user_id' AND username='$username'") or die('query failed');
 
-    if(mysqli_num_rows($query) > 0){
-        echo "<script>
-        alert('Anda telah mengirimkan kritik dan saran!');
-        </script>";
-    }else{
-        mysqli_query ($conn, "INSERT INTO 'kontak' (user_id, username, pesan) VALUES('$user_id', '$username', '$message')") or die('query failed');
+    if(mysqli_num_rows($query) == 'id'){
+        mysqli_query ($conn, "INSERT INTO 'kontak' (user_id, nama, username, pesan) VALUES('$user_id', '$nama', '$username', '$message')") or die('query failed');
         echo "<script>
         alert('Kritik dan saran telah dikirim, terima kasih!');
         </script>";
@@ -34,7 +31,7 @@ if(isset($_POST['kirim'])){
 
 <head>
     <meta charset="utf-8">
-    <title>Kritik & Saran - ANIPAT</title>
+    <title>Reservasi Layanan - ANIPAT</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
@@ -82,7 +79,7 @@ if(isset($_POST['kirim'])){
                         <a href="../Login/logout.php" class="dropdown-item">Logout</a>
                     </div>
                 </div>
-                <a href="contact.php" class="nav-item nav-link active nav-contact bg-primary text-dark px-5 ms-lg-5">KONTAK<i class="bi bi-arrow-right"></i></a>
+                <a href="contact.php" class="nav-item nav-link nav-contact bg-primary text-dark px-5 ms-lg-5">KONTAK<i class="bi bi-arrow-right"></i></a>
             </div>
         </div>
     </nav>
@@ -92,32 +89,59 @@ if(isset($_POST['kirim'])){
     <!-- Contact Start -->
     <div class="container-fluid pt-5">
         <div class="container">
-            <div class="border-start border-5 border-primary ps-5 mb-5" style="max-width: 600px;">
-                <h6 class="text-primary text-uppercase">Kritik & Saran</h6>
-                <h1 class="display-5 text-uppercase mb-0">Kirim Kritik dan Saran Pada Kami</h1>
+            <div class="border-start border-5 border-primary ps-5 mb-5" style="max-width: 700px;">
+                <h1 class="display-5 text-uppercase mb-0">Form Reservasi Layanan</h1>
             </div>
-            <div class="row ">
+            <div class="row g-5">
                 <div class="col-lg-7">
                     <form mmethod="post">
                         <div class="row g-3">
-                            <!-- <div class="col-12">
-                                <input type="text" class="form-control bg-light border-0 px-4" placeholder="Nama" style="height: 55px;" name="nama" required>
-                            </div> -->
                             <div class="col-12">
-                                <input type="text" class="form-control bg-light border-0 px-4" placeholder="Username" style="height: 55px;" name="username" required>
+                            <select class="select" name="layanan">
+                                <option value="customer" name="boarding">Pet Boarding</option>
+                                <option value="admin" name="feeding">Pet Feeding</option>
+                                <option value="staff" name="grooming">Pet Grooming</option>
+                                <option value="staff" name="training">Pet Training</option>
+                                <option value="customer" name="exercise">Pet Exercise</option>
+                                <option value="admin" name="treatment">Pet Treatment</option>
+                            </select>
                             </div>
                             <div class="col-12">
-                                <textarea class="form-control bg-light border-0 px-4 py-3" rows="8" placeholder="Kritik dan saran" name="msg" required></textarea>
-                            </div>
-                            <div class="col-12">
-                                <input type="submit" class="btn btn-primary py-2 px-3" style="width: 100%; height: 40px;" name="kirim" value="KIRIM"/>
+                                <span>Tanggal Reservasi</span>
+                                <input type="date" name="tanggal" value="mm/dd/2023" min="2023-01-01" max="2023-12-31" class="form-control bg-light border-0 px-4" style="height: 55px;">
                             </div>
                         </div>
                     </form>
                 </div>
                 <div class="col-lg-5">
-                    <div class="d-flex align-items-center mb-2">
-                        <img src="img/blog-1.jpg" alt="">
+                    <div class="bg-light mb-5 p-5">
+                        <div class="d-flex align-items-center mb-2">
+                            <i class="bi bi-geo-alt fs-1 text-primary me-3"></i>
+                            <div class="text-start">
+                                <h6 class="text-uppercase mb-1">Offline Store</h6>
+                                <span>Jl. Suwandi No. 62B</span>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center mb-2">
+                            <i class="bi bi-envelope-open fs-1 text-primary me-3"></i>
+                            <div class="text-start">
+                                <h6 class="text-uppercase mb-1">Alamat Email</h6>
+                                <span>anipat@gmail.com</span>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center mb-4">
+                            <i class="bi bi-phone-vibrate fs-1 text-primary me-3"></i>
+                            <div class="text-start">
+                                <h6 class="text-uppercase mb-1">Telepon</h6>
+                                <span>+628 5312 3456 789</span>
+                            </div>
+                        </div>
+                        <div>
+                            <iframe class="position-relative w-100"
+                                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3989.686321933984!2d117.14443977366275!3d-0.4660651352769639!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sid!2sid!4v1683266777769!5m2!1sid!2sid"
+                                frameborder="0" style="height: 205px; border:0;" allowfullscreen="" aria-hidden="false"
+                                tabindex="0"></iframe>
+                        </div>
                     </div>
                 </div>
             </div>

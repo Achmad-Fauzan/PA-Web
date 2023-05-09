@@ -333,7 +333,7 @@
 .products .box-container{
     display: flex;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: 35px;
     justify-content: center;
  }
  
@@ -344,17 +344,18 @@
     border: var(--border);
     position: relative;
     padding: 20px;
-    background-color: #DDDDDD;
+    margin-bottom: 20px;
+    background-color: #e6e6e6;
     width: 250px;
  }
  
  .products .box-container .box .image{
-    height: 200px;
+    height: 180px;
  }
  
  .products .box-container .box .name{
     padding: 20px;
-    color:var(--black);
+    color:var(--dark);
     padding: 5px 0;
  }
  
@@ -362,21 +363,25 @@
     position: relative;
     text-align: center;
     padding: 5px 10px;
-    color: #000000;
+    color: var(--dark);
     font-weight: 700;
     font-size: 15px;
  }
 
+ .products .box-container .box .stock{
+    font-size: 15px;
+    color:var(--dark);
+ }
+
  .products .box-container .box input[type="number"]{
     margin: 5px 0;
-    width: 100%;
+    width: 60%;
     height: 30px;
     border: var(--border);
-    border-radius: 5px;
     font-size: 15px;
     font-weight: bold;
-    color: var(--black);
-    padding: 12px 14px;
+    color: var(--dark);
+    padding: 12px 14px 12px 14px;
  }
 
  .container .shopping-cart{
@@ -386,9 +391,7 @@
  .container .shopping-cart table{
     width: 100%;
     text-align: center;
-    border: 1px solid;
-    border-radius: 5px;
-    box-shadow: #ccc;
+    border: 1px solid #ccc;
     background-color: #FFFFFF;
  }
  
@@ -400,7 +403,7 @@
     padding:10px;
     color: #FFFFFF;
     text-transform: capitalize;
-    font-size: 20px;
+    font-size: 15px;
  }
  
  .container .shopping-cart table .table-bottom{
@@ -409,22 +412,22 @@
  }
  
  .container .shopping-cart table tr td{
-    padding:10px;
-    font-size: 20px;
+    padding: 10px;
+    font-size: 15px;
     color: #000000;
  }
  
  .container .shopping-cart table tr td:nth-child(1){
-    padding:0;
+    padding: 20px;
  }
  
  .container .shopping-cart table tr td input[type="number"]{
     width: 65px;
     height: 40px;
-    border: 1px solid;
+    border: 1px solid var(--primary);
     padding:12px 14px;
-    font-size: 20px;
-    color: #000000;
+    font-size: 15px;
+    color: var(--dark);
  }
  
  .container .shopping-cart .cart-btn{
