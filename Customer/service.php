@@ -77,14 +77,6 @@ if(!isset($_SESSION['role'])){
                 <h6 class="text-primary text-uppercase">Layanan Kami</h6>
                 <h1 class="display-5 text-uppercase mb-0">LAYANAN PERAWATAN UNTUK HEWAN KESAYANGAN ANDA</h1>
             </div>
-            <div class="bottom-bar">
-                <div class="search-container">
-                    <form action="/action_page.php">
-                    <input type="text" placeholder="Cari layanan.." name="search">
-                    <button type="submit"><i class="fa fa-search"></i></button>
-                    </form>
-                </div>
-            </div>
             <div class="row g-5">
                 <div class="col-md-6">
                     <div class="service-item bg-light d-flex p-4">

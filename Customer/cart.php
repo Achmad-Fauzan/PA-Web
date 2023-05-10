@@ -100,11 +100,11 @@ if(isset($_GET['remove'])){
             <table>
                 <thead>
                     <th></th>
-                    <th>Nama</th>
+                    <th>Nama Produk</th>
                     <th>Harga</th>
                     <th>Quantity</th>
                     <th>Total</th>
-                    <th>Aksi</th>
+                    <th></th>
                 </thead>
                 <tbody>
                     <?php

@@ -110,6 +110,9 @@ if(isset($_POST['kirim'])){
                                 <span>Tanggal Reservasi</span>
                                 <input type="date" name="tanggal" value="mm/dd/2023" min="2023-01-01" max="2023-12-31" class="form-control bg-light border-0 px-4" style="height: 55px;">
                             </div>
+                            <div class="col-12">
+                                <input type="time" class="form-control bg-light border-0 px-4" placeholder="Jam" style="height: 55px;" name="jam" required>
+                            </div>
                         </div>
                     </form>
                 </div>

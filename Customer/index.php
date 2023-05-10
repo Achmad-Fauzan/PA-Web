@@ -174,8 +174,7 @@ if(!isset($_SESSION['role'])){
                         <i class="flaticon-house display-1 text-primary me-4"></i>
                         <div>
                             <h5 class="text-uppercase mb-3">Pet Boarding</h5>
-                            <p>Menjaga hewan peliharaan Anda, merawat sesuai arahan tenaga medis dan trainer <br> sesuai dengan prosedur yang berlaku <br> untuk memastikan hewan peliharaan <br> Anda berada dalam kondisi yang optimal.</p>
-                            <a class="text-primary text-uppercase" href="">Baca Selengkapnya<i class="bi bi-chevron-right"></i></a>
+                            <a class="text-primary text-uppercase" href="service.php">Baca Selengkapnya<i class="bi bi-chevron-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -184,8 +183,7 @@ if(!isset($_SESSION['role'])){
                         <i class="flaticon-food display-1 text-primary me-4"></i>
                         <div>
                             <h5 class="text-uppercase mb-3">Pet Feeding</h5>
-                            <p>Memberikan makanan hewan peliharaan Anda mulai dari dry food hingga wet food dengan kualitas tinggi.</p>
-                            <a class="text-primary text-uppercase" href="">Baca Selengkapnya<i class="bi bi-chevron-right"></i></a>
+                            <a class="text-primary text-uppercase" href="service.php">Baca Selengkapnya<i class="bi bi-chevron-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -194,8 +192,7 @@ if(!isset($_SESSION['role'])){
                         <i class="flaticon-grooming display-1 text-primary me-4"></i>
                         <div>
                             <h5 class="text-uppercase mb-3">Pet Grooming</h5>
-                            <p>Merawat, memelihara penampilan mulai dari perawatan bulu, pemotongan kuku, pembersihan telinga, pengaturan gaya rambut hewan peliharaan.</p>
-                            <a class="text-primary text-uppercase" href="">Baca Selengkapnya<i class="bi bi-chevron-right"></i></a>
+                            <a class="text-primary text-uppercase" href="service.php">Baca Selengkapnya<i class="bi bi-chevron-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -204,8 +201,7 @@ if(!isset($_SESSION['role'])){
                         <i class="flaticon-cat display-1 text-primary me-4"></i>
                         <div>
                             <h5 class="text-uppercase mb-3">Pet Training</h5>
-                            <p>Pelatihan hewan peliharaan berupa mengajari trik dan bagaimana tidak buang air kecil di rumah.</p>
-                            <a class="text-primary text-uppercase" href="">Baca Selengkapnya<i class="bi bi-chevron-right"></i></a>
+                            <a class="text-primary text-uppercase" href="service.php">Baca Selengkapnya<i class="bi bi-chevron-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -214,8 +210,7 @@ if(!isset($_SESSION['role'])){
                         <i class="flaticon-dog display-1 text-primary me-4"></i>
                         <div>
                             <h5 class="text-uppercase mb-3">Pet Exercise</h5>
-                            <p>Membawa hewan peliharaann Anda berjalan-jalan di sekitar blok.</p>
-                            <a class="text-primary text-uppercase" href="">Baca Selengkapnya<i class="bi bi-chevron-right"></i></a>
+                            <a class="text-primary text-uppercase" href="service.php">Baca Selengkapnya<i class="bi bi-chevron-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -224,8 +219,7 @@ if(!isset($_SESSION['role'])){
                         <i class="flaticon-vaccine display-1 text-primary me-4"></i>
                         <div>
                             <h5 class="text-uppercase mb-3">Pet Treatment</h5>
-                            <p>Berbagai macam terapi untuk mengobati kanker, salah satunya adalah pet therapy: terapi yang menggunakan hewan peliharaan.</p>
-                            <a class="text-primary text-uppercase" href="">Baca Selengkapnya<i class="bi bi-chevron-right"></i></a>
+                            <a class="text-primary text-uppercase" href="service.php">Baca Selengkapnya<i class="bi bi-chevron-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -359,8 +353,7 @@ if(!isset($_SESSION['role'])){
                         <h1 class="display-5 text-uppercase text-white mb-0">Save 50% on all items your first order</h1>
                     </div>
                     <p class="text-white mb-4">Hemat 50% untuk semua item pesanan pertama Anda</p>
-                    <a href="" class="btn btn-light py-md-3 px-md-5 me-3">Beli Sekarang</a>
-                    <a href="" class="btn btn-outline-light py-md-3 px-md-5">Baca Selengkapnya</a>
+                    <a href="product.php" class="btn btn-outline-light py-md-3 px-md-5">Beli Sekarang</a>
                 </div>
             </div>
         </div>
