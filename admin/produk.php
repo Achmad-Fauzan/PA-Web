@@ -17,13 +17,18 @@ if(isset($_POST['add_product'])){
     $product_price = $_POST['product_price'];
     $product_image = $_FILES['product_image']['name'];
     $product_image_tmp_name = $_FILES['product_image']['tmp_name'];
-    $product_image_folder = 'uploaded_img'.$product_image;
+    $product_image_folder = '../projek_akhir/admin/img/'.$product_image;
     $product_stok = $_POST['product_stok'];
 
     if(empty($product_name) || empty($product_price) || empty($product_image)){
         $message[] = 'Form tidak boleh kosong!';
     }else{
-        $insert = "INSERT INTO 'produk' (kategori_id, nama, harga, foto, ketersediaan_stok) VALUES('$product_category', '$product_name', '$product_price', '$product_image', '$product_stok')";
+        $insert = "INSERT INTO produk (kategori_id, nama, harga, foto, ketersediaan_stok) VALUES('$product_category', '$product_name', '$product_price', '$product_image', '$product_stok')";
+        echo $product_category;
+        echo $product_name;
+        echo $product_price;
+        echo $product_image;
+        echo $product_stok;
         $upload = mysqli_query($conn,$insert);
         if($upload){
             move_uploaded_file($product_image_tmp_name, $product_image_folder);
@@ -129,7 +134,7 @@ if(isset($message)){
    <div class="admin-product-form-container">
       <form action="<?php $_SERVER['PHP_SELF'];?>" method="post" enctype="multipart/form-data">
          <h3>Tambah Produk Baru</h3>
-         <input type="text" placeholder="Masukan kategori produk" name="product_name" class="box">
+         <input type="text" placeholder="Masukan kategori produk" name="product_category" class="box">
          <small>*Makanan = 1, Aksesoris = 2</small>
          <input type="text" placeholder="Masukan nama produk" name="product_name" class="box">
          <input type="number" placeholder="Masukan harga produk" name="product_price" class="box">
@@ -156,7 +161,7 @@ if(isset($message)){
          </thead>
          <?php while($row = mysqli_fetch_assoc($select)){ ?>
          <tr>
-            <td><img src="<?php echo $row['foto']; ?>" width="100px" alt=""></td>
+            <td><img src="uploaded_img/<?php echo $row['foto']; ?>" width="100px" alt=""></td>
             <td><?php echo $row['kategori_id']; ?></td>
             <td><?php echo $row['nama']; ?></td>
             <td>Rp<?php echo $row['harga']; ?></td>

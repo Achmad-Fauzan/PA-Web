@@ -114,7 +114,7 @@ if(isset($_GET['remove'])){
                         while($fetch_cart = mysqli_fetch_assoc($carts)){
                     ?>
                     <tr>
-                        <td><img src="<?php echo $fetch_cart['foto']; ?>" height="100" alt=""></td>
+                        <td><img src="img/<?php echo $fetch_cart['foto']; ?>" height="100" alt=""></td>
                         <td><?php echo $fetch_cart['nama']?></td>
                         <td><?php echo $fetch_cart['harga']?></td>
                         <td>

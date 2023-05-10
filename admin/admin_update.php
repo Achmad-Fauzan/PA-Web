@@ -14,7 +14,7 @@ if(isset($_POST['update_product'])){
    $product_stok = $_POST['product_stok'];
 
    if(empty($product_name) || empty($product_price) || empty($product_image) || empty($product_stok)){
-      $message[] = 'please fill out all!';    
+      $message[] = 'Form tidak boleh kosong!';    
    }else{
 
       $update_data = "UPDATE produk SET nama='$product_name', harga='$product_price', 

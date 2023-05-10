@@ -41,17 +41,17 @@ if(!isset($_SESSION['role'])){
             <div class="side-menu">
                 <ul>
                     <li>
-                        <a href="" class="active">
-                            <span class="las la-home"></span>
-                            <small>Dasbor</small>
+                        <a href="index.php" class="active">
+                            <span class="las la-cash-register"></span>
+                            <small>Transaksi</small>
                         </a>
                     </li>
-                    <!-- <li>
-                        <a href="akun.php">
-                            <span class="las la-user-alt"></span>
-                            <small>Akun Pengguna</small>
+                    <li>
+                        <a href="reservation.php">
+                            <span class="las la-calendar"></span>
+                            <small>Reservasi</small>
                         </a>
-                    </li> -->
+                    </li>
                 </ul>
             </div>
         </div>
@@ -65,10 +65,6 @@ if(!isset($_SESSION['role'])){
                 </label>
                 
                 <div class="header-menu">
-                    <label for="">
-                        <span class="las la-search"></span>
-                    </label>                    
-                    
                     <div class="user">
                         <div class="bg-img" style="background-image: url(img/3.jpg)"></div>
                         <a href="../index.php">
@@ -82,8 +78,8 @@ if(!isset($_SESSION['role'])){
 
         <main>
             <div class="page-header">
-                <h1>Dasbor</h1>
-                <small>Dasbor / Transaksi</small>
+                <h1>Kontak</h1>
+                <small>Kritik dan Saran</small>
             </div>
             <?php
             $select = mysqli_query($conn, "SELECT * FROM pembayaran");
@@ -99,8 +95,6 @@ if(!isset($_SESSION['role'])){
                         <th>Metode Pembayaran</th>
                         <th>Total Pembayaran</th>
                         <th>Tanggal</th>
-                        <th>Status</th>
-                        <th>Aksi</th>
                     </tr>
                     </thead>
                     <?php while($row = mysqli_fetch_assoc($select)){ ?>
@@ -112,10 +106,6 @@ if(!isset($_SESSION['role'])){
                         <td><?php echo $row['metode_pembayaran']; ?></td>
                         <td>Rp<?php echo $row['total_pembayaran']; ?></td>
                         <td><?php echo $row['tanggal']; ?></td>
-                        <td><?php echo $row['status']; ?></td>
-                        <td>
-                            <a href="#" class="btn"> Edit </a>
-                        </td>
                     </tr>
                     <?php 
                     }      
