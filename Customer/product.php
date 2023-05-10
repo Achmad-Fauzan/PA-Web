@@ -190,7 +190,7 @@ if(mysqli_num_rows($select_products) > 0){
                             while($fetch_products = mysqli_fetch_assoc($select_products)){
                     ?>
                     <form action="" method="post" class="box">
-                        <img class="image" src="<?php echo $fetch_products['foto']; ?>" alt="">
+                        <img class="image" src="img/<?php echo $fetch_products['foto']; ?>" alt="">
                         <div class="name"><?php echo $fetch_products['nama']; ?></div>
                         <div class="price">Rp<?php echo $fetch_products['harga']; ?></div>
                         <div class="stock"><?php echo $fetch_products['ketersediaan_stok']; ?></div>

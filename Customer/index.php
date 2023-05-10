@@ -387,7 +387,7 @@ if(!isset($_SESSION['role'])){
                 </div>
                 <div class="team-item">
                     <div class="position-relative overflow-hidden">
-                        <img class="img-fluid w-100" src="img/team-2.jpg" alt="">
+                        <img class="img-fluid w-50" src="img/fauzan.jpeg" alt="">
                         <div class="team-overlay">
                             <div class="d-flex align-items-center justify-content-start">
                                 <a class="btn btn-light btn-square mx-1" href="#"><i class="bi bi-twitter"></i></a>
@@ -403,7 +403,7 @@ if(!isset($_SESSION['role'])){
                 </div>
                 <div class="team-item">
                     <div class="position-relative overflow-hidden">
-                        <img class="img-fluid w-100" src="img/team-3.jpg" alt="">
+                        <img class="img-fluid w-50" src="img/abigail.jpeg" alt="">
                         <div class="team-overlay">
                             <div class="d-flex align-items-center justify-content-start">
                                 <a class="btn btn-light btn-square mx-1" href="#"><i class="bi bi-twitter"></i></a>

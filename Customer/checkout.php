@@ -173,7 +173,7 @@ if(isset($_POST['order_btn'])){
                                                 $total += $total_price;
                                         ?>
                                         <tr>
-                                            <td><img src="<?php echo $fetch_cart['foto']; ?>" height="100"></td>
+                                            <td><img src="img/<?php echo $fetch_cart['foto']; ?>" height="100"></td>
                                             <td><?php echo $fetch_cart['nama']?></td>
                                             <td><?php echo 'Rp'.$fetch_cart['harga']; ?></td>
                                             <td><?php echo '/'.'x'.$fetch_cart['quantity']; ?></td>

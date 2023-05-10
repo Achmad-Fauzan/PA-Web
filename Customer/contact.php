@@ -11,18 +11,19 @@ if(!isset($_SESSION['role'])){
 
 if(isset($_POST['kirim'])){
     $username = $_POST['username'];
+    $number = $_POST['nomor'];
     $message = $_POST['msg'];
     
-    $query = mysqli_query($conn,"SELECT * FROM 'user' WHERE username = '$username'") or die('query failed');
+    $query = mysqli_query($conn,"SELECT * FROM kontak WHERE username = '$username' AND 'nomor' = '$number'") or die('query failed');
 
     if(mysqli_num_rows($query) > 0){
         echo "<script>
-        alert('Anda telah mengirimkan kritik dan saran!');
+        alert('Anda telah mengirimkan pesan!');
         </script>";
     }else{
-        mysqli_query ($conn, "INSERT INTO 'kontak' (user_id, username, pesan) VALUES('$user_id', '$username', '$message')") or die('query failed');
+        mysqli_query ($conn, "INSERT INTO kontak (user_id, username, nomor, pesan) VALUES('$user_id', '$username', '$number', '$message')") or die('query failed');
         echo "<script>
-        alert('Kritik dan saran telah dikirim, terima kasih!');
+        alert('Pesan telah dikirim, terima kasih!');
         </script>";
     }
 }
@@ -34,7 +35,7 @@ if(isset($_POST['kirim'])){
 
 <head>
     <meta charset="utf-8">
-    <title>Kritik & Saran - ANIPAT</title>
+    <title>Kontak - ANIPAT</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
@@ -93,12 +94,12 @@ if(isset($_POST['kirim'])){
     <div class="container-fluid pt-5">
         <div class="container">
             <div class="border-start border-5 border-primary ps-5 mb-5" style="max-width: 600px;">
-                <h6 class="text-primary text-uppercase">Kritik & Saran</h6>
-                <h1 class="display-5 text-uppercase mb-0">Kirim Kritik dan Saran Pada Kami</h1>
+                <h6 class="text-primary text-uppercase">Kontak</h6>
+                <h1 class="display-5 text-uppercase mb-0">Kirim Pesan Pada Kami</h1>
             </div>
             <div class="row ">
                 <div class="col-lg-7">
-                    <form mmethod="post">
+                    <form method="post">
                         <div class="row g-3">
                             <!-- <div class="col-12">
                                 <input type="text" class="form-control bg-light border-0 px-4" placeholder="Nama" style="height: 55px;" name="nama" required>
@@ -107,7 +108,10 @@ if(isset($_POST['kirim'])){
                                 <input type="text" class="form-control bg-light border-0 px-4" placeholder="Username" style="height: 55px;" name="username" required>
                             </div>
                             <div class="col-12">
-                                <textarea class="form-control bg-light border-0 px-4 py-3" rows="8" placeholder="Kritik dan saran" name="msg" required></textarea>
+                                <input type="text" class="form-control bg-light border-0 px-4" placeholder="Nomor Hp" style="height: 55px;" name="nomor" required>
+                            </div>
+                            <div class="col-12">
+                                <textarea class="form-control bg-light border-0 px-4 py-3" rows="8" placeholder="Pesan" name="msg" required></textarea>
                             </div>
                             <div class="col-12">
                                 <input type="submit" class="btn btn-primary py-2 px-3" style="width: 100%; height: 40px;" name="kirim" value="KIRIM"/>

@@ -10,16 +10,22 @@ if(!isset($_SESSION['role'])){
 }
 
 if(isset($_POST['kirim'])){
-    $nama = $_POST['nama'];
-    $username = $_POST['username'];
-    $message = $_POST['msg'];
+    $name = $_POST['nama'];
+    $number = $_POST['nomor'];
+    $service = $_POST['layanan'];
+    $date = date('d-M-Y');
+    $time = $_POST['jam'];
     
-    $query = mysqli_query($conn,"SELECT * FROM 'user' WHERE user_id = '$user_id' AND username='$username'") or die('query failed');
+    $query = mysqli_query($conn,"SELECT * FROM reservasi WHERE user_id = '$user_id' AND nama = '$name'") or die('query failed');
 
-    if(mysqli_num_rows($query) == 'id'){
-        mysqli_query ($conn, "INSERT INTO 'kontak' (user_id, nama, username, pesan) VALUES('$user_id', '$nama', '$username', '$message')") or die('query failed');
+    if(mysqli_num_rows($query) > 0){
         echo "<script>
-        alert('Kritik dan saran telah dikirim, terima kasih!');
+        alert('Anda telah mengirimkan jadwal reservasi!');
+        </script>";
+    }else{
+        mysqli_query ($conn, "INSERT INTO reservasi (user_id, nama, nomor, layanan, tanggal, jam) VALUES('$user_id', '$name', '$number', '$service', '$date', '$time')") or die('query failed');
+        echo "<script>
+        alert('Booking reservasi telah dikirim');
         </script>";
     }
 }
@@ -94,24 +100,37 @@ if(isset($_POST['kirim'])){
             </div>
             <div class="row g-5">
                 <div class="col-lg-7">
-                    <form mmethod="post">
+                    <form method="post">
                         <div class="row g-3">
                             <div class="col-12">
-                            <select class="select" name="layanan">
-                                <option value="customer" name="boarding">Pet Boarding</option>
-                                <option value="admin" name="feeding">Pet Feeding</option>
-                                <option value="staff" name="grooming">Pet Grooming</option>
-                                <option value="staff" name="training">Pet Training</option>
-                                <option value="customer" name="exercise">Pet Exercise</option>
-                                <option value="admin" name="treatment">Pet Treatment</option>
-                            </select>
+                                <span>Nama</span>
+                                <input type="text" class="form-control bg-light border-0 px-4" placeholder="Nama lengkap" style="height: 55px;" name="nama" required>
+                            </div>
+                            <div class="col-12">
+                                <span>Nomor Hp</span>
+                                <input type="text" class="form-control bg-light border-0 px-4" placeholder="Nomor Hp/WhatsApp" style="height: 55px;" name="nomor" required>
+                            </div>
+                            <div class="col-12">
+                                <span>Pilih Layanan</span>
+                                <select class="select form-control bg-light border-0 px-4" style="height: 55px;" name="layanan" required>
+                                    <option value="boarding" name="boarding">Pet Boarding</option>
+                                    <option value="feeding" name="feeding">Pet Feeding</option>
+                                    <option value="grooming" name="grooming">Pet Grooming</option>
+                                    <option value="training" name="training">Pet Training</option>
+                                    <option value="exercise" name="exercise">Pet Exercise</option>
+                                    <option value="treatment" name="treatment">Pet Treatment</option>
+                                </select>
                             </div>
                             <div class="col-12">
                                 <span>Tanggal Reservasi</span>
-                                <input type="date" name="tanggal" value="mm/dd/2023" min="2023-01-01" max="2023-12-31" class="form-control bg-light border-0 px-4" style="height: 55px;">
+                                <input type="date" value="mm/dd/2023" min="2023-01-01" max="2023-12-31" class="form-control bg-light border-0 px-4" style="height: 55px;" name="tanggal" required>
                             </div>
                             <div class="col-12">
+                                <span>Jam Reservasi</span>
                                 <input type="time" class="form-control bg-light border-0 px-4" placeholder="Jam" style="height: 55px;" name="jam" required>
+                            </div>
+                            <div class="col-12">
+                                <input type="submit" class="btn btn-primary py-2 px-3" style="width: 100%; height: 40px;" name="kirim" value="KIRIM"/>
                             </div>
                         </div>
                     </form>
