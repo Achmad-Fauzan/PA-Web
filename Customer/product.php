@@ -30,7 +30,27 @@ if(isset($_POST['add_to_cart'])){
             </script>";
     }
 }
- 
+
+// Sorting
+$sortby = 'nama';
+$sorttype = 'asc';
+
+if(isset($_GET['sort'])){
+    $sortby = $_GET['sortby'];
+    $sorttype = $_GET['sorttype'];
+}
+
+$select_products = mysqli_query($conn, "SELECT * FROM `produk` ORDER BY $sortby $sorttype") or die('query failed');
+
+
+if(mysqli_num_rows($select_products) > 0){
+    while($fetch_products = mysqli_fetch_assoc($select_products)){
+        
+    }
+} else {
+    echo '<p class="empty">Produk tidak ditemukan!</p>';
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -98,39 +118,92 @@ if(isset($_POST['add_to_cart'])){
     <div class="container-fluid py-2">
         <div class="container">
             <div class="products">
-                <div class="border-start border-5 border-primary ps-5 mb-4" style="max-width: 600px;">
+                <div class="border-start border-5 border-primary ps-5 mb-4" style="max-width: 100%;">
                     <h3 class="text-primary text-uppercase">Produk ANIPAT</h3>
                     <h1 class="display-5 text-uppercase mb-0">Produk Kebutuhan Hewan Anda</h1>
                 </div>
                 <div class="bottom-bar">
+                    <!-- searching -->
                     <div class="search-container">
-                        <form action="/action_page.php">
+                        <form action="" method="post">
                         <input type="text" placeholder="Cari produk.." name="search">
-                        <button type="submit"><i class="fa fa-search"></i></button>
+                        <button type="submit" name="submit"><i class="fa fa-search"></i></button>
+                        </form>
+                    </div>
+                    <div class="search-container mb-3">
+                        <!-- Sorting -->
+                        <form class="asc" action="" method="get">
+                            <label for="sortby">
+                                <select name="sortby" id="sortby" class="btn btn-primary py-2 px-2 align-items-center mt-2">
+                                    <option value="nama" <?php if($sortby == 'nama') echo 'selected'; ?>>Nama Produk</option>
+                                    <option value="harga" <?php if($sortby == 'harga') echo 'selected'; ?>>Harga Produk</option>
+                                </select>
+                                <select name="sorttype" id="sorttype" class="btn btn-primary py-2 px-2 align-items-center mt-2">
+                                    <option value="asc" <?php if($sorttype == 'asc') echo 'selected'; ?>>Terbawah</option>
+                                    <option value="desc" <?php if($sorttype == 'desc') echo 'selected'; ?>>Teratas</option>
+                                </select>
+                                <button type="submit" name="sort">Urutkan<i class="fa fa-sort align-items-center mt-1 ps-2"></i></button>
+                            </label>
                         </form>
                     </div>
                 </div>
                 <div class="box-container">
+                    <!-- searching -->
                     <?php
-                        $select_products = mysqli_query($conn, "SELECT * FROM `produk`") or die('query failed');
+                        if(isset($_POST['submit'])){
+                            $search_item = $_POST['search'];
+                            $products = mysqli_query($conn, "SELECT * FROM `produk` WHERE nama LIKE '%{$search_item}%'") or die('query failed');
+                            if(mysqli_num_rows($products) > 0){
+                                while($fetch_products = mysqli_fetch_assoc($products)){
+                    ?>
+                    <form action="" method="post" class="box">
+                        <img class="image" src="<?php echo $fetch_products['foto']; ?>" alt="">
+                        <div class="name"><?php echo $fetch_products['nama']; ?></div>
+                        <div class="price">Rp<?php echo $fetch_products['harga']; ?></div>
+                        <div class="stock"><?php echo $fetch_products['ketersediaan_stok']; ?></div>
+                        <input type="number" min="1" name="product_quantity" value="1" class="form-control bg-light border-0 px-3 py-2 align-items-center mt-3" style="width: 100%;">
+                        <input type="hidden" name="product_name" value="<?php echo $fetch_products['nama']; ?>">
+                        <input type="hidden" name="product_price" value="<?php echo $fetch_products['harga']; ?>">
+                        <input type="hidden" name="product_image" value="<?php echo $fetch_products['foto']; ?>">
+                        <input type="submit" value="Tambah" name="add_to_cart" class="btn btn-primary py-2 px-3 align-items-center mt-3" style="width: 100%; height: 40px;">
+                    </form>
+                    <?php
+                                }
+                            }else{
+                                echo '<p class="empty">Produk tidak ditemukan!</p>';
+                            }
+                        }
+                    ?>
+                    <?php
+                        // Sorting
+                        if(isset($_GET['sort'])){
+                        $sortby = $_GET['sortby'];
+                        $sorttype = $_GET['sorttype'];
+
+                        $query = "SELECT * FROM `produk` ORDER BY $sortby $sorttype";
+                        }else{
+                            $query = "SELECT * FROM `produk`";
+                        }
+
+                        $select_products = mysqli_query($conn, $query) or die('query failed');
                         if(mysqli_num_rows($select_products) > 0){
                             while($fetch_products = mysqli_fetch_assoc($select_products)){
-                        ?>
-                        <form action="" method="post" class="box">
-                            <img class="image" src="<?php echo $fetch_products['foto']; ?>" alt="">
-                            <div class="name"><?php echo $fetch_products['nama']; ?></div>
-                            <div class="price">Rp<?php echo $fetch_products['harga']; ?></div>
-                            <div class="stock"><?php echo $fetch_products['ketersediaan_stok']; ?></div>
-                            <input type="number" min="1" name="product_quantity" value="1" class="form-control bg-light border-0 px-3 py-2 align-items-center mt-3" style="width: 100%;">
-                            <input type="hidden" name="product_name" value="<?php echo $fetch_products['nama']; ?>">
-                            <input type="hidden" name="product_price" value="<?php echo $fetch_products['harga']; ?>">
-                            <input type="hidden" name="product_image" value="<?php echo $fetch_products['foto']; ?>">
-                            <input type="submit" value="Tambah" name="add_to_cart" class="btn btn-primary py-2 px-3 align-items-center mt-3" style="width: 100%; height: 40px;">
-                        </form>
-                        <?php
+                    ?>
+                    <form action="" method="post" class="box">
+                        <img class="image" src="<?php echo $fetch_products['foto']; ?>" alt="">
+                        <div class="name"><?php echo $fetch_products['nama']; ?></div>
+                        <div class="price">Rp<?php echo $fetch_products['harga']; ?></div>
+                        <div class="stock"><?php echo $fetch_products['ketersediaan_stok']; ?></div>
+                        <input type="number" min="1" name="product_quantity" value="1" class="form-control bg-light border-0 px-3 py-2 align-items-center mt-3" style="width: 100%;">
+                        <input type="hidden" name="product_name" value="<?php echo $fetch_products['nama']; ?>">
+                        <input type="hidden" name="product_price" value="<?php echo $fetch_products['harga']; ?>">
+                        <input type="hidden" name="product_image" value="<?php echo $fetch_products['foto']; ?>">
+                        <input type="submit" value="Tambah" name="add_to_cart" class="btn btn-primary py-2 px-3 align-items-center mt-3" style="width: 100%; height: 40px;">
+                    </form>
+                    <?php
                             }
                         }else{
-                            echo '<p class="empty">Tidak ada produk yang ditambahkan!</p>';
+                            echo '<p class="empty">Produk tidak ditemukan!</p>';
                         }
                     ?>
                 </div>
